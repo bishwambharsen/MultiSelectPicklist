@@ -5,8 +5,11 @@
         //Removing the item from the array
         selectedValues = selectedValues.filter((x) => x != item);
         cmp.set("v.selectedValues", selectedValues);
-        //Reset the combobox
-        cmp.find("multiCombo").set("v.value", null);
+
+        //Add the option back to the combobox
+        let options = cmp.get("v.options");
+        options.push({ label: item, value: item });
+        cmp.set("v.options", options);
     },
 
     selectValue: function(cmp, evt, helper) {
@@ -14,8 +17,14 @@
         let selectedValue = multiCombo.get("v.value");
         console.log("Selected value: ", selectedValue);
         let selectedValues = cmp.get("v.selectedValues");
+        //Add the select value in the pill
         if (!selectedValues.includes(selectedValue))
             selectedValues.push(selectedValue);
         cmp.set("v.selectedValues", selectedValues);
+
+        //Remove the option from the picklist.
+        let options = cmp.get("v.options");
+        options = options.filter((x) => x != selectedValue);
+        cmp.set("v.options", options);
     }
 });
