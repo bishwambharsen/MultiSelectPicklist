@@ -24,7 +24,7 @@
 
         //Remove the option from the picklist.
         let options = cmp.get("v.options");
-        options = options.filter((x) => x != selectedValue);
+        options = options.filter((x) => x.value != selectedValue);
         cmp.set("v.options", options);
     }
 });
