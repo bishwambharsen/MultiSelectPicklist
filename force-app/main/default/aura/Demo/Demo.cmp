@@ -1,0 +1,18 @@
+<!--
+  @File Name          : Demo.cmp
+  @Description        : 
+  @Author             : bishwambhar.sen@sen-force.com
+  @Group              : 
+  @Last Modified By   : bishwambhar.sen@sen-force.com
+  @Last Modified On   : 6/19/2020, 10:41:39 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    6/19/2020   bishwambhar.sen@sen-force.com     Initial Version
+-->
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <lightning:card title="Multi-select Combo Container">
+        <p class="slds-p-horizontal_small">
+            <c:MultiSelectPicklist options="[{label:'Sachin', value:'Sachin'},{label:'Sourav', value:'Sourav'},{label:'Dravid', value:'Dravid'}]" />
+        </p>
+    </lightning:card>
+</aura:component>

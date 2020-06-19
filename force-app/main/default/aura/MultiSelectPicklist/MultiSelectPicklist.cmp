@@ -1,0 +1,28 @@
+<!--
+  @File Name          : MultiSelectPicklist.cmp
+  @Description        : 
+  @Author             : bishwambhar.sen@sen-force.com
+  @Group              : 
+  @Last Modified By   : bishwambhar.sen@sen-force.com
+  @Last Modified On   : 6/19/2020, 11:13:54 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    6/19/2020   bishwambhar.sen@sen-force.com     Initial Version
+-->
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute name="options" type="List" default="[{label:'Option A', value:'Option A'},
+    {label:'Option B', value:'Option B'}, {label:'Option C', value:'Option C'}]" description="Options in the picklist" />
+    <aura:attribute name="selectedValues" type="List" default="[]" description="Selected values" />
+    <aura:attribute name="name" type="Boolean" default="optionalDefault" />
+
+    <lightning:layout horizontalAlign="center" verticalAlign="start" multipleRows="true" pullToBoundary="small">
+        <lightning:layoutItem size="12" padding="around-small">
+            <lightning:combobox aura:id="multiCombo" placeholder="Select an Option" name="multiCombo" label="Multi-select combo-box" onchange="{!c.selectValue}" options="{! v.options }" />
+        </lightning:layoutItem>
+        <aura:iteration items="{!v.selectedValues}" var="item">
+            <lightning:layoutItem>
+                <lightning:pill label="{!item}" onremove="{! c.removeOption }" />
+            </lightning:layoutItem>
+        </aura:iteration>
+    </lightning:layout>
+</aura:component>
