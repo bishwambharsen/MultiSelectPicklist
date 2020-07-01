@@ -32,8 +32,7 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
         
-        - name: ESLint (JS/TS) Action 
-  uses: iCrawl/action-eslint@v1
-  with:
-    # Custom glob to overwrite which files to lint.
-    custom-glob: # optional, default is src
+    - name: ESLint (JS/TS) Action 
+    - uses: iCrawl/action-eslint@v1
+    
+     
